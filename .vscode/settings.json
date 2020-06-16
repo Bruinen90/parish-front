@@ -1,7 +1,6 @@
 {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.tabSize": 2,
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
     "eslint.options": {
@@ -24,4 +23,7 @@
     "prettier.trailingComma": "all",
     "prettier.requireConfig": true,
     "jest.autoEnable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
 }
