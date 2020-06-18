@@ -8,14 +8,40 @@ interface PropTypes {
 	data: any;
 }
 
+interface Announcement {
+	id: string;
+	date: Date;
+	holidayname: string;
+	paragraph: [Point];
+}
+
+interface Point {
+	id: string;
+	highlighted: boolean;
+	text: string;
+}
+
 const Announcements: React.FC<PropTypes> = ({ data }) => {
 	const {
-		allStrapiAnnouncement: { nodes },
+		allStrapiAnnouncement: { nodes: announcements },
 	} = data;
-	console.log(nodes);
 	return (
 		<Layout>
 			<h1>Ogłoszenia parafialne</h1>
+			{announcements.map((dayAnnouncements: Announcement) => {
+				const { id, date, holidayname, paragraph } = dayAnnouncements;
+				return (
+					<article key={id}>
+						<h3>{holidayname}</h3>
+						<div>{date}</div>
+						<ul>
+							{paragraph.map((point: Point) => (
+								<li key={point.id}>{point.text}</li>
+							))}
+						</ul>
+					</article>
+				);
+			})}
 		</Layout>
 	);
 };
@@ -24,9 +50,9 @@ export const query = graphql`
 	{
 		allStrapiAnnouncement {
 			nodes {
-				strapiId
 				date
-				holidayName
+				holidayname
+				id
 				paragraph {
 					highlighted
 					id
