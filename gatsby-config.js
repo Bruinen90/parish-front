@@ -1,26 +1,27 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
-	/* Your site config here */
 	plugins: [
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
 		'gatsby-plugin-typescript',
-		'gatsby-plugin-sass',
 		{
 			resolve: `gatsby-source-strapi`,
 			options: {
 				apiURL: `http://localhost:1337`,
-				queryLimit: 100, // Default to 100
+				queryLimit: 100,
 				contentTypes: [`announcement`],
-				// singleTypes: [`home-page`, `contact`],
-				// Possibility to login with a strapi user, when content types are not publically available (optional).
-				// loginData: {
-				// 	identifier: '',
-				// 	password: '',
-				// },
+				singleTypes: [`home`, `contact`],
+			},
+		},
+		{
+			resolve: `gatsby-source-cloudinary`,
+			options: {
+				cloudName: process.env.CLOUDINARY_NAME,
+				apiKey: process.env.CLOUDINARY_KEY,
+				apiSecret: process.env.CLOUDINARY_SECRET,
 			},
 		},
 	],

@@ -31,7 +31,7 @@
 	"plugins": ["@typescript-eslint", "prettier", "react"],
 	"rules": {
 		"indent": [
-			"error",
+			"warn",
 			"tab",
 			{
 				"SwitchCase": 1
@@ -40,21 +40,22 @@
 		"no-console": ["warn"],
 		"no-debugger": ["error"],
 		"no-multiple-empty-lines": [
-			"error",
+			"warn",
 			{
 				"max": 1,
 				"maxEOF": 1
 			}
 		],
 		"import/order": [
-			"error",
+			"warn",
 			{
 				"groups": ["external", "index", "sibling", "parent", "internal", "builtin"]
 			}
 		],
 		"react/prop-types": "off",
 		"react/display-name": "off",
-		"@typescript-eslint/explicit-function-return-type": "off"
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"linebreak-style": "warn"
 	},
 	"settings": {
 		"import/extensions": [".js", ".ts", ".tsx", ".css", ".scss"]

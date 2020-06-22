@@ -11,13 +11,13 @@ interface PropTypes {
 interface Announcement {
 	id: string;
 	date: Date;
-	holidayname: string;
-	paragraph: [Point];
+	holidayName: string;
+	news: [Point];
 }
 
 interface Point {
 	id: string;
-	highlighted: boolean;
+	bold: boolean;
 	text: string;
 }
 
@@ -29,13 +29,13 @@ const Announcements: React.FC<PropTypes> = ({ data }) => {
 		<Layout>
 			<h1>Ogłoszenia parafialne</h1>
 			{announcements.map((dayAnnouncements: Announcement) => {
-				const { id, date, holidayname, paragraph } = dayAnnouncements;
+				const { id, date, holidayName, news } = dayAnnouncements;
 				return (
 					<article key={id}>
-						<h3>{holidayname}</h3>
+						<h3>{holidayName}</h3>
 						<div>{date}</div>
 						<ul>
-							{paragraph.map((point: Point) => (
+							{news.map((point: Point) => (
 								<li key={point.id}>{point.text}</li>
 							))}
 						</ul>
@@ -51,10 +51,10 @@ export const query = graphql`
 		allStrapiAnnouncement {
 			nodes {
 				date
-				holidayname
+				holidayName
 				id
-				paragraph {
-					highlighted
+				news {
+					bold
 					id
 					text
 				}
