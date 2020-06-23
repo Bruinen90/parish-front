@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
 // create pages dynamically
@@ -12,7 +13,6 @@ exports.createPages = async ({ graphql, actions }) => {
 			}
 		}
 	`);
-	console.log('RESULT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', JSON.stringify(result));
 	result.data.announcementsList.nodes.forEach((date) => {
 		createPage({
 			path: `/ogloszenia/${date.date}`,
