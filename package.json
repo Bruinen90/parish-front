@@ -20,9 +20,11 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@types/styled-components": "5.1.0",
     "babel-plugin-styled-components": "1.10.7",
-    "gatsby": "2.15.12",
+    "gatsby": "2.23.11",
     "gatsby-image": "2.4.7",
+    "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-sass": "2.1.14",
     "gatsby-plugin-sharp": "2.6.11",
     "gatsby-plugin-styled-components": "3.3.5",
@@ -49,7 +51,7 @@
     "rimraf": "3.0.0",
     "stylelint": "10.1.0",
     "stylelint-config-recommended": "2.2.0",
-    "typed-css-modules": "0.6.2",
+    "typed-css-modules": "0.6.4",
     "typed-scss-modules": "0.0.12",
     "typescript": "3.6.2"
   },

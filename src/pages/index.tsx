@@ -4,15 +4,15 @@ import Image from 'gatsby-image';
 
 // Components
 import Layout from '../components/Layout/Layout';
+import Title from '../components/Title/Title';
 
 interface GatsbyPage {
 	data: any;
 }
 const Home: React.FC<GatsbyPage> = ({ data }) => {
-	console.log(data);
 	return (
 		<Layout>
-			<h1>Page title</h1>
+			<Title uppercase>Page title</Title>
 			<Image fluid={data.strapiHome.heroImage.childImageSharp.fluid} />
 		</Layout>
 	);
