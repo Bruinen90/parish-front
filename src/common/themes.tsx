@@ -1,20 +1,16 @@
-const sizes = {
-	sm: 375,
-	md: 768,
-	lg: 1024,
-	xl: 1440,
-	fhd: 1920,
-};
+import { DefaultTheme } from 'styled-components';
 
-type Sizes = typeof sizes;
-
-export const defaultTheme = {
+export const defaultTheme: DefaultTheme = {
 	color: {
 		text: '#444',
-		background: '#fff',
-		primary: 'green',
-		secondary: 'red',
+		background: '#fcf7f8',
+		primaryLight: '#709599',
+		primary: '#4D6A6D',
+		primaryDark: '#222e30',
+		secondaryLight: '#FFE15C',
+		secondary: '#ffd615',
+		secondaryDark: '#e0b700',
 	},
-	spacing: (n: number) => n + 'rem',
-	queries: (size: keyof Sizes) => `@media (min-width: ${size}px)`,
+	spacing: (n) => n + 'rem',
+	queries: (size) => `@media (min-width: ${size}px)`,
 };
