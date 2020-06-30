@@ -18,6 +18,7 @@ const Title: React.FC<Props> = ({
 	const StyledTag = styled(Tag)`
 		color: ${(props) => props.theme.color[color]};
 		text-transform: ${uppercase ? 'uppercase' : 'none'};
+		margin-top: 0;
 	`;
 	return <StyledTag>{children}</StyledTag>;
 };

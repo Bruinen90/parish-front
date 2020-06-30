@@ -65,4 +65,8 @@ export const Burger = styled.div<BurgerProps>`
 			transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
 		}
 	}
+
+	@media (min-width: ${({ theme }) => theme.queries('lg')}) {
+		display: none;
+	}
 `;

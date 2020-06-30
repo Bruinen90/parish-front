@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
 
 // Components
+import * as Styled from './styles/stylesIndex';
 import Layout from '../components/Layout/Layout';
-import Title from '../components/Title/Title';
+
+// Styles
 
 interface GatsbyPage {
 	data: any;
@@ -12,8 +13,19 @@ interface GatsbyPage {
 const Home: React.FC<GatsbyPage> = ({ data }) => {
 	return (
 		<Layout>
-			<Title uppercase>Page title</Title>
-			<Image fluid={data.strapiHome.heroImage.childImageSharp.fluid} />
+			<Styled.HeroBox>
+				<Styled.HeroText>
+					<Styled.HeroSubHeader>
+						Parafia pod wezwaniem
+					</Styled.HeroSubHeader>
+					<Styled.HeroHeader>
+						św. Brata Alberta w Krakowie
+					</Styled.HeroHeader>
+				</Styled.HeroText>
+				<Styled.HeroImg
+					fluid={data.strapiHome.heroImage.childImageSharp.fluid}
+				/>
+			</Styled.HeroBox>
 		</Layout>
 	);
 };

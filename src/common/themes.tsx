@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+import { sizes } from './themes.d';
 
 export const defaultTheme: DefaultTheme = {
 	color: {
@@ -12,5 +13,5 @@ export const defaultTheme: DefaultTheme = {
 		secondaryDark: '#e0b700',
 	},
 	spacing: (n) => n + 'rem',
-	queries: (size) => `@media (min-width: ${size}px)`,
+	queries: (size) => `${sizes[size]}px`,
 };
