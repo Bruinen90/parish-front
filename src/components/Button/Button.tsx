@@ -5,12 +5,19 @@ import * as Styled from './stylesButton';
 import { Colors } from '../../common/themes.d';
 
 export interface ButtonProps {
-	type: 'filled' | 'outlined' | 'text';
+	variant: 'filled' | 'outlined' | 'text';
 	color: keyof Colors;
+	as?: React.ElementType;
+	to?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ type, color, children }) => (
-	<Styled.Wrapper type={type} color={color}>
+const Button: React.FC<ButtonProps> = ({
+	variant,
+	color,
+	children,
+	...other
+}) => (
+	<Styled.Wrapper variant={variant} color={color} {...other}>
 		{children}
 	</Styled.Wrapper>
 );

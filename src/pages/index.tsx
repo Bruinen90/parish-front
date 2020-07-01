@@ -1,9 +1,10 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 // Components
 import * as Styled from './styles/stylesIndex';
 import Layout from '../components/Layout/Layout';
+import Button from '../components/Button/Button';
 
 // Styles
 
@@ -21,6 +22,24 @@ const Home: React.FC<GatsbyPage> = ({ data }) => {
 					<Styled.HeroHeader>
 						św. Brata Alberta w Krakowie
 					</Styled.HeroHeader>
+					<Styled.ButtonsBox>
+						<Button
+							variant="filled"
+							color="secondaryDark"
+							as={Link}
+							to="/msze-swiete"
+						>
+							Msze Święte
+						</Button>
+						<Button
+							variant="outlined"
+							color="background"
+							as={Link}
+							to="/kontakt"
+						>
+							Kontakt
+						</Button>
+					</Styled.ButtonsBox>
 				</Styled.HeroText>
 				<Styled.HeroImg
 					fluid={data.strapiHome.heroImage.childImageSharp.fluid}

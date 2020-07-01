@@ -61,6 +61,16 @@ export const HeroHeader = styled.h1`
 	letter-spacing: 3px;
 `;
 
+export const ButtonsBox = styled.div`
+	display: flex;
+	justify-content: center;
+	z-index: 5;
+
+	*:not(:last-child) {
+		margin-right: 1rem;
+	}
+`;
+
 export const HeroImg = styled(Image)`
 	position: absolute !important;
 	top: 0;

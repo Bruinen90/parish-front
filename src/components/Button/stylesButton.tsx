@@ -7,16 +7,25 @@ interface StyledButtonProps extends ButtonProps {
 
 export const Wrapper = styled.button<StyledButtonProps>`
 	border: 0;
+	padding: 8px 16px;
+	cursor: pointer;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
 	border-radius: 8px;
 	border: 1px solid transparent;
 	border-color: ${(props) =>
-		props.type === 'text' ? 'transparent' : props.theme.color[props.color]};
+		props.variant === 'text'
+			? 'transparent'
+			: props.theme.color[props.color]};
 	background-color: ${(props) =>
-		props.type === 'filled'
+		props.variant === 'filled'
 			? props.theme.color[props.color]
 			: 'transparent'};
 	color: ${(props) =>
-		props.type === 'filled'
-			? props.theme.color.background
-			: props.theme.color[props.color]};
+		props.variant === 'filled' ? '#fff' : props.theme.color[props.color]};
+	&:hover {
+		filter: brightness(1.1);
+	}
 `;
