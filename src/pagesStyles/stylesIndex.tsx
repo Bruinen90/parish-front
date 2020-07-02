@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'gatsby-image';
+import Title from '../components/Title/Title';
 
 export const HeroBox = styled.section`
 	height: calc(100vh - 75px);
@@ -27,38 +28,13 @@ export const HeroText = styled.div`
 	z-index: 5;
 `;
 
-export const HeroSubHeader = styled.h3`
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	font-size: 0.9rem;
+export const HeroTitle = styled(Title)`
 	font-weight: lighter;
-	position: relative;
-	display: inline;
-
-	&:before,
-	&:after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		width: 120px;
-		height: 1px;
-		background-color: ${(props) => props.theme.color.background};
-	}
-
-	&:before {
-		left: -130px;
-	}
-
-	&:after {
-		left: calc(100% + 10px);
-	}
-`;
-
-export const HeroHeader = styled.h1`
-	text-transform: uppercase;
-	font-weight: lighter;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	letter-spacing: 3px;
+	h1 {
+		margin: 1rem 0;
+	}
 `;
 
 export const ButtonsBox = styled.div`

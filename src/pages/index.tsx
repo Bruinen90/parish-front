@@ -2,9 +2,10 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 
 // Components
-import * as Styled from './styles/stylesIndex';
+import * as Styled from '../pagesStyles/stylesIndex';
 import Layout from '../components/Layout/Layout';
 import Button from '../components/Button/Button';
+import ServiceBox from '../components/ServiceBox/ServiceBox';
 
 // Styles
 
@@ -16,12 +17,14 @@ const Home: React.FC<GatsbyPage> = ({ data }) => {
 		<Layout>
 			<Styled.HeroBox>
 				<Styled.HeroText>
-					<Styled.HeroSubHeader>
-						Parafia pod wezwaniem
-					</Styled.HeroSubHeader>
-					<Styled.HeroHeader>
+					<Styled.HeroTitle
+						h={1}
+						subTitle="Parafia pod wezwaniem"
+						color="background"
+						uppercase
+					>
 						św. Brata Alberta w Krakowie
-					</Styled.HeroHeader>
+					</Styled.HeroTitle>
 					<Styled.ButtonsBox>
 						<Button
 							variant="filled"
@@ -45,6 +48,7 @@ const Home: React.FC<GatsbyPage> = ({ data }) => {
 					fluid={data.strapiHome.heroImage.childImageSharp.fluid}
 				/>
 			</Styled.HeroBox>
+			<ServiceBox />
 		</Layout>
 	);
 };
