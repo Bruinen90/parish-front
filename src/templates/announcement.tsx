@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout/Layout';
+import AnnouncementsBox from '../components/Announcements/Announcements';
 
 interface Props {
 	data: {
@@ -29,13 +30,12 @@ const Announcement: React.FC<Props> = ({
 }) => {
 	return (
 		<Layout>
-			<h1>{announcement.holidayName}</h1>
-			<h3>{announcement.date}</h3>
-			<ul>
-				{announcement.news.map((item) => (
-					<li key={item.id}>{item.text}</li>
-				))}
-			</ul>
+			<AnnouncementsBox
+				current={false}
+				date={announcement.date}
+				holidayName={announcement.holidayName}
+				points={announcement.news}
+			/>
 		</Layout>
 	);
 };

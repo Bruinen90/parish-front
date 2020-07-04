@@ -2,6 +2,7 @@ import React from 'react';
 
 // Styles
 import { ThemeProvider } from 'styled-components';
+import * as Styled from './stylesLayout';
 import { defaultTheme } from '../../common/themes';
 import GlobalStyle from '../../common/globalStyle';
 
@@ -12,9 +13,11 @@ import Footer from '../Footer/Footer';
 const Layout: React.FC = ({ children }) => {
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<GlobalStyle theme="defaultTheme" />
+			<GlobalStyle theme={defaultTheme} />
 			<Navbar />
-			{children}
+			<Styled.Wrapper>
+				<Styled.Content>{children}</Styled.Content>
+			</Styled.Wrapper>
 			<Footer />
 		</ThemeProvider>
 	);

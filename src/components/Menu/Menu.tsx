@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import * as Styled from './stylesMenu';
 
 const LINKS = [
-	{ url: '/announcements', text: 'Ogłoszenia parafialne' },
+	{ url: '/ogloszenia', text: 'Ogłoszenia parafialne' },
 	{ url: '/office', text: 'Kancelaria' },
 	{ url: '/messes', text: 'Msze Święte' },
 	{ url: '/confession', text: 'Spowiedź' },

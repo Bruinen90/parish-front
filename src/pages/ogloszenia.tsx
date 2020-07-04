@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 //Styles
 import * as Styled from '../pagesStyles/stylesAnnouncements';
@@ -7,17 +7,17 @@ import * as Styled from '../pagesStyles/stylesAnnouncements';
 // Components
 import Layout from '../components/Layout/Layout';
 import Title from '../components/Title/Title';
+import AnnouncementsBox from '../components/Announcements/Announcements';
 
 // Types
 interface PropTypes {
 	data: any;
 }
 
-interface Announcement {
+interface AnnouncementHeader {
 	id: string;
 	date: Date;
 	holidayName: string;
-	news: [Point];
 }
 
 interface Point {
@@ -26,25 +26,34 @@ interface Point {
 	text: string;
 }
 
+interface Announcement extends AnnouncementHeader {
+	news: [Point];
+}
+
 const Announcements: React.FC<PropTypes> = ({ data }) => {
-	const announcements: [Announcement] = data.allStrapiAnnouncement.nodes;
-	const currentPoints = announcements[0].news;
+	const currentAnnouncements: [Announcement] = data.newestAnnouncement.nodes;
+	const allAnnouncementsHeaders: [AnnouncementHeader] =
+		data.allAnnouncementsHeaders.nodes;
+	const currentAnnouncementsPoints = currentAnnouncements[0].news;
 	return (
 		<Layout>
-			<Title h={1}>Ogłoszenia parafialne</Title>
-			<Styled.CurrentAnnouncements>
-				<Styled.HolidayDate>5 lipca 2020</Styled.HolidayDate>
-				<Styled.HolidayName>14. niedziela zwykła</Styled.HolidayName>
-				<Styled.PointsList>
-					{currentPoints.map((point: Point) => (
-						<Styled.Point bold={point.bold} key={point.id}>
-							{point.text}
-						</Styled.Point>
-					))}
-				</Styled.PointsList>
-			</Styled.CurrentAnnouncements>
 			<Styled.ArchiveBox>
+				<AnnouncementsBox
+					current={true}
+					date={currentAnnouncements[0].date}
+					holidayName={currentAnnouncements[0].holidayName}
+					points={currentAnnouncementsPoints}
+				/>
 				<Title h={2}>Starsze ogłoszenia</Title>
+				<Styled.ArchiveList>
+					{allAnnouncementsHeaders.map((holiday) => (
+						<Styled.ArchiveItem key={holiday.id}>
+							<Link to={`/ogloszenia/${holiday.date}`}>
+								{holiday.date} - {holiday.holidayName}
+							</Link>
+						</Styled.ArchiveItem>
+					))}
+				</Styled.ArchiveList>
 			</Styled.ArchiveBox>
 		</Layout>
 	);
@@ -52,7 +61,10 @@ const Announcements: React.FC<PropTypes> = ({ data }) => {
 
 export const query = graphql`
 	{
-		allStrapiAnnouncement(sort: { fields: date, order: DESC }, limit: 1) {
+		newestAnnouncement: allStrapiAnnouncement(
+			sort: { fields: date, order: DESC }
+			limit: 1
+		) {
 			nodes {
 				holidayName
 				id
@@ -62,6 +74,15 @@ export const query = graphql`
 					text
 					id
 				}
+			}
+		}
+		allAnnouncementsHeaders: allStrapiAnnouncement(
+			sort: { fields: date, order: DESC }
+		) {
+			nodes {
+				holidayName
+				id
+				date
 			}
 		}
 	}

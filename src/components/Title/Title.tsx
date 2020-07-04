@@ -8,6 +8,7 @@ interface Props {
 	uppercase?: boolean;
 	subTitle?: string;
 	className?: string;
+	center?: boolean;
 }
 
 const Title: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const Title: React.FC<Props> = ({
 	h = 1,
 	color = 'text',
 	uppercase = false,
+	center = false,
 	className,
 	subTitle,
 }) => {
@@ -23,7 +25,20 @@ const Title: React.FC<Props> = ({
 	const StyledTag = styled(Tag)`
 		color: ${(props) => props.theme.color[color]};
 		text-transform: ${uppercase ? 'uppercase' : 'none'};
-		margin-top: 0;
+		position: relative;
+		display: inline;
+		z-index: 1;
+
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			left: -10px;
+			bottom: 5%;
+			height: 2px;
+			width: 80%;
+			background-color: ${(props) => props.theme.color.secondaryLight};
+		}
 	`;
 
 	const Subtitle = styled.span`
@@ -55,7 +70,10 @@ const Title: React.FC<Props> = ({
 	`;
 
 	return (
-		<div className={className}>
+		<div
+			className={className}
+			style={{ textAlign: center ? 'center' : 'left' }}
+		>
 			{subTitle && <Subtitle>{subTitle}</Subtitle>}
 			<StyledTag>{children}</StyledTag>
 		</div>
