@@ -10,13 +10,19 @@ import GlobalStyle from '../../common/globalStyle';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 
-const Layout: React.FC = ({ children }) => {
+interface PropTypes {
+	fullWidth?: boolean;
+}
+
+const Layout: React.FC<PropTypes> = ({ fullWidth = false, children }) => {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<GlobalStyle theme={defaultTheme} />
 			<Navbar />
 			<Styled.Wrapper>
-				<Styled.Content>{children}</Styled.Content>
+				<Styled.Content fullWidth={fullWidth}>
+					{children}
+				</Styled.Content>
 			</Styled.Wrapper>
 			<Footer />
 		</ThemeProvider>

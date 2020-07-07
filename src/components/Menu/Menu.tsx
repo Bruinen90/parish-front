@@ -5,10 +5,11 @@ import * as Styled from './stylesMenu';
 
 const LINKS = [
 	{ url: '/ogloszenia', text: 'Ogłoszenia parafialne' },
-	{ url: '/office', text: 'Kancelaria' },
-	{ url: '/messes', text: 'Msze Święte' },
-	{ url: '/confession', text: 'Spowiedź' },
-	{ url: '/contact', text: 'Kontakt' },
+	{ url: '/kancelaria', text: 'Kancelaria' },
+	{ url: '/msze', text: 'Msze Święte' },
+	{ url: '/spowiedz', text: 'Spowiedź' },
+	{ url: '/sakramenty', text: 'Sakramenty' },
+	{ url: '/kontakt', text: 'Kontakt' },
 ];
 
 interface MenuProps {

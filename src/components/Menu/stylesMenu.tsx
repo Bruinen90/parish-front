@@ -24,6 +24,7 @@ export const Menu = styled.nav<MenuProps>`
 		max-height: 100vh;
 		top: auto;
 		font-size: 0.8rem;
+		overflow: visible;
 	}
 	ul {
 		list-style: none;
@@ -44,6 +45,23 @@ export const Menu = styled.nav<MenuProps>`
 			a {
 				color: inherit;
 				text-decoration: none;
+				position: relative;
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: -6px;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					background-color: ${(props) => props.theme.color.secondary};
+					transform: scaleX(0);
+					transition: all 0.25s ease-in-out;
+				}
+				&:hover {
+					&:after {
+						transform: none;
+					}
+				}
 			}
 		}
 	}

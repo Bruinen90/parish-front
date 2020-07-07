@@ -19,6 +19,7 @@ export const HeroBox = styled.section`
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.33);
+		z-index: 2;
 	}
 `;
 
@@ -53,5 +54,5 @@ export const HeroImg = styled(Image)`
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
+	z-index: 0;
 `;

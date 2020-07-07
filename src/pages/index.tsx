@@ -14,7 +14,7 @@ interface GatsbyPage {
 }
 const Home: React.FC<GatsbyPage> = ({ data }) => {
 	return (
-		<Layout>
+		<Layout fullWidth={true}>
 			<Styled.HeroBox>
 				<Styled.HeroText>
 					<Styled.HeroTitle
@@ -22,6 +22,7 @@ const Home: React.FC<GatsbyPage> = ({ data }) => {
 						subTitle="Parafia pod wezwaniem"
 						color="background"
 						uppercase
+						center
 					>
 						św. Brata Alberta w Krakowie
 					</Styled.HeroTitle>

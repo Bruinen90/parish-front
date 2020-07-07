@@ -6,9 +6,7 @@ import * as Styled from './stylesNavbar';
 // Components
 import Menu from '../Menu/Menu';
 import Cover from '../Cover/Cover';
-
-// Icons
-import LogoIcon from '../../icons/eucharist.inline.svg';
+import Logo from '../Logo/Logo';
 
 const Navbar = () => {
 	const [menuOpened, setMenuOpened] = useState(false);
@@ -19,12 +17,7 @@ const Navbar = () => {
 	return (
 		<>
 			<Styled.Header>
-				<Styled.LogoCont>
-					<Styled.LogoIcon>
-						<LogoIcon />
-					</Styled.LogoIcon>
-					Parafia pod wezwaniem św. Brata Alberta w Krakowie
-				</Styled.LogoCont>
+				<Logo />
 				<Styled.Burger open={menuOpened} onClick={toggleMenu}>
 					<div />
 					<div />

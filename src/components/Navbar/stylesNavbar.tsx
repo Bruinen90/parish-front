@@ -11,20 +11,8 @@ export const Header = styled.header`
 	padding: 8px 16px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	z-index: 100;
-`;
-
-export const LogoCont = styled.div`
-	display: flex;
-	align-items: center;
-	height: 80%;
-`;
-
-export const LogoIcon = styled.span`
-	svg {
-		fill: ${(props) => props.theme.color.secondary};
-		height: 60px;
-	}
 `;
 
 interface BurgerProps {
