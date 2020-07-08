@@ -14,7 +14,7 @@ module.exports = {
 			options: {
 				apiURL: `http://localhost:1337`,
 				queryLimit: 100,
-				contentTypes: [`announcement`],
+				contentTypes: [`announcement`, `mess`],
 				singleTypes: [`home`, `contact`],
 			},
 		},
