@@ -15,3 +15,21 @@ export const Content = styled.main<ContentProps>`
 	padding: ${({ theme, fullWidth }) =>
 		fullWidth ? 0 : [theme.spacing(2), theme.spacing(1)].join(' ')};
 `;
+
+export const Article = styled.article`
+	text-align: center;
+	position: relative;
+	margin: ${(props) => props.theme.spacing(4)} 0;
+	&:not(:last-child):after {
+		content: '';
+		position: absolute;
+		bottom: -30px;
+		left: 0;
+		right: 0;
+		width: 33vw;
+		max-width: 300px;
+		height: 1px;
+		background-color: ${(props) => props.theme.color.secondary};
+		margin: auto;
+	}
+`;
