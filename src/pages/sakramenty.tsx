@@ -1,5 +1,5 @@
 import React from 'react';
-import { gatsby } from 'gatsby';
+import { graphql } from 'gatsby';
 
 // Components
 import Layout from '../components/Layout/Layout';
@@ -8,12 +8,50 @@ import Title from '../components/Title/Title';
 //Styles
 import * as Styled from '../pagesStyles/stylesSakramenty';
 
-const Sakramenty: React.FC = () => (
-	<Layout>
-		<Title h={1} uppercase center>
-			Sakramenty Święte
-		</Title>
-	</Layout>
-);
+interface Sacrament {
+	name: string;
+	shortDescription: string;
+	photo: {
+		childImageSharp: {
+			fluid: {
+				src: string;
+			};
+		};
+	};
+}
 
+interface PropTypes {
+	data: {
+		allStrapiSacrament: {
+			nodes: [Sacrament];
+		};
+	};
+}
+
+const Sakramenty: React.FC<PropTypes> = ({ data }) => {
+	console.log(data);
+	return (
+		<Layout>
+			<Title h={1}>Sakramenty</Title>
+		</Layout>
+	);
+};
+
+export const query = graphql`
+	{
+		allStrapiSacrament {
+			nodes {
+				name
+				shortDescription
+				photo {
+					childImageSharp {
+						fluid {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+		}
+	}
+`;
 export default Sakramenty;
