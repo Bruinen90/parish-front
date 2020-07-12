@@ -14,7 +14,7 @@ interface Sacrament {
 	photo: {
 		childImageSharp: {
 			fluid: {
-				src: string;
+				src: any;
 			};
 		};
 	};
@@ -30,9 +30,22 @@ interface PropTypes {
 
 const Sakramenty: React.FC<PropTypes> = ({ data }) => {
 	console.log(data);
+	const sacraments = data.allStrapiSacrament.nodes;
 	return (
 		<Layout>
 			<Title h={1}>Sakramenty</Title>
+			<Styled.SacramentsGrid>
+				{sacraments.map((sacrament) => (
+					<Styled.SacramentBox>
+						<Styled.SacramentImage
+							fluid={sacrament.photo.childImageSharp.fluid}
+						/>
+						<Styled.SacramentTitle>
+							{sacrament.name}
+						</Styled.SacramentTitle>
+					</Styled.SacramentBox>
+				))}
+			</Styled.SacramentsGrid>
 		</Layout>
 	);
 };
