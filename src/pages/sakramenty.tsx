@@ -36,7 +36,10 @@ const Sakramenty: React.FC<PropTypes> = ({ data }) => {
 			<Title h={1}>Sakramenty</Title>
 			<Styled.SacramentsGrid>
 				{sacraments.map((sacrament) => (
-					<Styled.SacramentBox>
+					<Styled.SacramentBox
+						to={`/sakramenty/${sacrament.name}`}
+						key={sacrament.name}
+					>
 						<Styled.SacramentImage
 							fluid={sacrament.photo.childImageSharp.fluid}
 						/>

@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
 		createPage({
 			path: `/sakramenty/${name.name}`,
 			component: path.resolve(`src/templates/sacrament.tsx`),
-			context: { name: name },
+			context: { name: name.name },
 		});
 	});
 };

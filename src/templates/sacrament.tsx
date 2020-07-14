@@ -49,8 +49,8 @@ const Sacrament: React.FC<Props> = ({
 };
 
 export const query = graphql`
-	query GetSacrament {
-		strapiSacrament {
+	query GetSacrament($name: String) {
+		strapiSacrament(name: { eq: $name }) {
 			name
 			shortDescription
 			fullDescription

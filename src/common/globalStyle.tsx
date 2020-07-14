@@ -17,4 +17,8 @@ export default createGlobalStyle`
             font-family: 'Montserrat';
             font-weight: 200;
         }
+
+        h1 {
+            font-size: 2rem;
+        }
 	`;
